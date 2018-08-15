@@ -1,14 +1,13 @@
 let fs = require('fs')
-let lines = undefined
-let cheese = 1
 
-// function countLines(){
-    cheese = 2
-    fs.readFile( process.argv[2], 'utf8', function readFileCallback( err, data ){
-        lines = data.toString()
-        reportLines( lines.split('\n').length - 1 )
-    })
-// }
+fs.readFile( process.argv[2], 'utf8', function readFileCallback( err, data ){
+    if( err ){
+        return console.log( err )
+    }
+    let lines = data.split('\n').length - 1
+    console.log( lines )
+    // reportLines( lines )
+})
 
 function reportLines( lines ){
     console.log( lines )
